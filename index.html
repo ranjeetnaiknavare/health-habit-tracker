@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Habit Tracker</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-heartbeat"></i> Health Tracker</h1>
+            <div class="date-display" id="current-date"></div>
+        </header>
+
+        <section class="habit-section">
+            <!-- Water Tracking -->
+            <article class="habit-card">
+                <div class="habit-header">
+                    <i class="fas fa-tint"></i>
+                    <h2>Water Intake</h2>
+                </div>
+                <div class="habit-controls">
+                    <button onclick="updateHabit('water', -1)">-</button>
+                    <span id="water-count">0</span>/8 glasses
+                    <button onclick="updateHabit('water', 1)">+</button>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="water-progress"></div>
+                </div>
+            </article>
+
+            <!-- Exercise Tracking -->
+            <article class="habit-card">
+                <div class="habit-header">
+                    <i class="fas fa-running"></i>
+                    <h2>Exercise</h2>
+                </div>
+                <div class="habit-controls">
+                    <input type="number" id="exercise-input" min="0" placeholder="Minutes">
+                    <button onclick="logExercise()">Add</button>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="exercise-progress"></div>
+                </div>
+            </article>
+
+            <!-- Sleep Tracking -->
+            <article class="habit-card">
+                <div class="habit-header">
+                    <i class="fas fa-bed"></i>
+                    <h2>Sleep</h2>
+                </div>
+                <div class="habit-controls">
+                    <input type="number" id="sleep-input" min="0" max="24" placeholder="Hours">
+                    <button onclick="logSleep()">Log Sleep</button>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="sleep-progress"></div>
+                </div>
+            </article>
+        </section>
+
+        <div class="reset-container">
+            <button onclick="resetDay()" class="reset-btn">
+                <i class="fas fa-sync-alt"></i> Reset Day
+            </button>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
